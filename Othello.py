@@ -53,12 +53,10 @@ class Othello:
         return False
 
     def est_termine(self):
-        # Vérifier si le plateau est plein
         plein = all(not case.est_vide() for ligne in self.plateau.plateau for case in ligne)
         if plein:
             return True
-
-        # Vérifier si l'un des joueurs peut jouer un coup
+        
         peut_jouer_noir = self.joueur_peut_jouer("noir")
         peut_jouer_blanc = self.joueur_peut_jouer("blanc")
 
@@ -80,12 +78,10 @@ class Othello:
         self.changer_joueur()
 
     def rejouer_partie(self):
-        # Réinitialiser le jeu
         self.__init__()
         for coup in self.historique_coups:
             self.jouer_coup(*coup)
-            print(self)  # Afficher le plateau après chaque coup
-            # Vous pouvez ajouter une pause ou une interaction ici si nécessaire
+            print(self) 
 
     def retourner(self, ligne, colonne, direction):
         termine = False

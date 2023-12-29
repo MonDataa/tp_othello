@@ -17,11 +17,11 @@ class Gui:
         print("3: Alpha-Beta")
         choix = input("Votre choix: ")
         if choix == "1":
-            return self.ai.min_max  # Référence à la méthode de l'instance AI
+            return self.ai.min_max
         elif choix == "2":
-            return self.ai.negamax  # Référence à la méthode de l'instance AI
+            return self.ai.negamax 
         elif choix == "3":
-            return self.ai.alpha_beta  # Référence à la méthode de l'instance AI
+            return self.ai.alpha_beta 
         else:
             print("Choix invalide, utilisation de Min-Max par défaut.")
             return self.ai.min_max
@@ -34,13 +34,13 @@ class Gui:
         print("4: Heuristique mixte")
         choix = input("Votre choix: ")
         if choix == "1":
-            return Heuristique.heuristique_absolue  # Référence à la méthode statique de Heuristique
+            return Heuristique.heuristique_absolue  
         elif choix == "2":
-            return Heuristique.heuristique_positionnelle  # Référence à la méthode statique de Heuristique
+            return Heuristique.heuristique_positionnelle
         elif choix == "3":
-            return Heuristique.heuristique_mobilite  # Référence à la méthode statique de Heuristique
+            return Heuristique.heuristique_mobilite
         elif choix == "4":
-            return Heuristique.heuristique_mixte  # Référence à la méthode statique de Heuristique
+            return Heuristique.heuristique_mixte 
         else:
             print("Choix invalide, utilisation de l'heuristique de mobilité par défaut.")
             return Heuristique.heuristique_mobilite
