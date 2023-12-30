@@ -29,17 +29,20 @@ class Gui:
     def choisir_heuristique(self):
         print("Choisissez l'heuristique pour l'AI:")
         print("1: Heuristique absolue")
-        print("2: Heuristique positionnelle")
-        print("3: Heuristique de mobilité")
-        print("4: Heuristique mixte")
+        print("2: Heuristique Coins valorisés")
+        print("3: Heuristique positionnelle")
+        print("4: Heuristique de mobilité")
+        print("5: Heuristique mixte")
         choix = input("Votre choix: ")
         if choix == "1":
             return Heuristique.heuristique_absolue  
         elif choix == "2":
-            return Heuristique.heuristique_positionnelle
+            return Heuristique.heuristique_coins_valorises
         elif choix == "3":
-            return Heuristique.heuristique_mobilite
+            return Heuristique.heuristique_positionnelle
         elif choix == "4":
+            return Heuristique.heuristique_mobilite 
+        elif choix == "5":
             return Heuristique.heuristique_mixte 
         else:
             print("Choix invalide, utilisation de l'heuristique de mobilité par défaut.")

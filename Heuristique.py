@@ -18,7 +18,7 @@ class Heuristique:
         return valeur
 
     @staticmethod
-    def heuristique_2(othello, joueur):
+    def heuristique_coins_valorises(othello, joueur):
         valeur = 0
         for ligne in range(8):
             for colonne in range(8):
