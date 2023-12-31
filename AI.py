@@ -4,6 +4,7 @@ from copy import deepcopy
 class AI:
     def __init__(self):
         self.nb_situations_examinees = 0
+        self.nb_noeuds_generees = 0
 
     def compter_situations(self, init):
         if init:
@@ -13,9 +14,14 @@ class AI:
 
     def tour_joueur_courant(self, prof_courante):
         return prof_courante % 2 == 1
+    
+
+    def compter_noeuds(self):
+        self.nb_noeuds_generees += 1
 
     def min_max(self, othello, joueur, prof_courante, prof_max, heuristique):
         self.compter_situations(prof_courante == 1)
+        self.compter_noeuds()
         if prof_courante > prof_max:
             return ([], heuristique(othello, joueur))
         else:
@@ -58,6 +64,7 @@ class AI:
     
     def negamax(self, othello, joueur, prof_courante, prof_max, heuristique):
         self.compter_situations(prof_courante == 1)
+        self.compter_noeuds()
         if prof_courante > prof_max or othello.est_termine():
             return [], -heuristique(othello, joueur)
 
@@ -98,6 +105,7 @@ class AI:
     
     def alpha_beta(self, othello, joueur, prof_courante, prof_max, heuristique, alpha, beta):
         self.compter_situations(prof_courante == 1)
+        self.compter_noeuds()
         if prof_courante > prof_max:
             return ([], heuristique(othello, joueur))
         else:
@@ -134,14 +142,20 @@ class AI:
                 alpha = recompense
         return [coup_retenu] + enchainement_retenu, recompense_retenue
 
-    def retenir_pire_coup_alpha_beta(self, othello, possibilites, joueur, prof_courante, prof_max, heuristique, alpha, beta):
+    def retenir_pire_coup_alpha_beta(self,othello, possibilites, joueur, prof_courante, prof_max, heuristique, alpha, beta):
         coup_retenu = None
         recompense_retenue = None
         enchainement_retenu = None
         for coup in possibilites:
-            nouvelle_situation = deepcopy(othello)
-            nouvelle_situation.jouer_coup(*coup)
+            nouvelle_situation = othello.tenter_coup(coup)
             liste_coups, recompense = self.alpha_beta(nouvelle_situation, joueur, prof_courante+1, prof_max, heuristique, alpha, beta)
             if recompense_retenue is None or recompense < recompense_retenue:
                 recompense_retenue = recompense
+                enchainement_retenu = liste_coups
+                coup_retenu = coup
+                if recompense_retenue <= alpha:
+                    break
+            if recompense < beta:
+                beta = recompense
+        return [coup_retenu] + enchainement_retenu, recompense_retenue
     
