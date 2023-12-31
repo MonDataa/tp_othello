@@ -33,7 +33,7 @@ def main():
       while not othello.est_termine():
         if othello.joueur_courant == joueur_humain:
             # Affiche le plateau avec les mouvements possibles pour le joueur humain
-            othello.afficher_plateau_avec_mouvements()
+            #othello.afficher_plateau_avec_mouvements()
             gui.jouer_coup_humain(othello)
         else:
             if mode == "1":

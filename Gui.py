@@ -48,7 +48,7 @@ class Gui:
             print("Choix invalide, utilisation de l'heuristique de mobilité par défaut.")
             return Heuristique.heuristique_mobilite
 
-    def jouer_coup_humain(self):
+    def jouer_coup_humain(self, othello):
         coup_valide = False
         while not coup_valide:
             try:
