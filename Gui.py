@@ -61,14 +61,34 @@ class Gui:
             except ValueError:
                 print("Entrée invalide. Veuillez entrer deux nombres.")
 
-    def jouer_coup_ai(self, joueur, profondeur, heuristique, algorithme):
+    """def jouer_coup_ai(self, joueur, profondeur, heuristique, algorithme):
         print(f"L'IA ({joueur}) réfléchit...")
         solution = algorithme(self.othello, joueur, 1, profondeur, heuristique)
         coup_IA = solution[0][0]
         if coup_IA is None:
             self.othello.changer_joueur()
         else:
-            self.othello.jouer_coup(coup_IA[0], coup_IA[1])
+            self.othello.jouer_coup(coup_IA[0], coup_IA[1])"""
+
+    def jouer_coup_ai(self,othello, joueur, profondeur, heuristique, algorithme):
+        print(f"L'IA ({joueur}) réfléchit...")
+        if algorithme == self.ai.alpha_beta:
+            solution = self.ai.alpha_beta(othello, joueur, 1, profondeur, heuristique, -float('inf'), float('inf'))
+        elif algorithme == self.ai.negamax:
+            solution = self.ai.negamax(othello, joueur, 1, profondeur, heuristique)
+        else:  # min_max ou autre algorithme
+            solution = self.ai.min_max(othello, joueur, 1, profondeur, heuristique)
+
+        # Gérer le retour des fonctions
+        if isinstance(solution, tuple):
+            coup_IA = solution[0][0] if solution[0] else None
+        else:
+            coup_IA = None
+
+        if coup_IA:
+            othello.jouer_coup(coup_IA[0], coup_IA[1])
+        else:
+            othello.changer_joueur()
 
     def choisir_couleur_joueur(self):
         choix = input("Choisissez la couleur pour le joueur humain (1: Noir, 2: Blanc): ")

@@ -30,21 +30,25 @@ def main():
     profondeur_IA = 4
 
     with open("scores_othello.txt", "w") as file:
-        while not othello.est_termine():
-            if othello.joueur_courant == joueur_humain:
-                gui.jouer_coup_humain()
+      while not othello.est_termine():
+        if othello.joueur_courant == joueur_humain:
+            gui.jouer_coup_humain(othello)
+        else:
+            if mode == "1":
+                heuristique = heuristique_IA
+                algorithme = algorithme_IA
             else:
-                heuristique = heuristique_IA if mode == "1" else (heuristique_noir if joueur_IA == "noir" else heuristique_blanc)
-                algorithme = algorithme_IA if mode == "1" else (algorithme_noir if joueur_IA == "noir" else algorithme_blanc)
-                gui.jouer_coup_ai(joueur_IA, profondeur_IA, heuristique, algorithme)
+                heuristique = heuristique_noir if joueur_IA == "noir" else heuristique_blanc
+                algorithme = algorithme_noir if joueur_IA == "noir" else algorithme_blanc
+            gui.jouer_coup_ai(othello, joueur_IA, profondeur_IA, heuristique, algorithme)
 
-            print(othello)
-            if mode != "1":
-                joueur_IA = "noir" if joueur_IA == "blanc" else "blanc"
+        print(othello)
+        if mode != "1":
+          joueur_IA = "noir" if joueur_IA == "blanc" else "blanc"
 
             # Calculer et enregistrer le score
-            score = heuristique(othello, othello.joueur_courant)
-            file.write(f"Score pour {othello.joueur_courant} = {score}\n")
+        score = heuristique(othello, othello.joueur_courant)
+        file.write(f"Score pour {othello.joueur_courant} = {score}\n")
 
     print("Jeu terminé!")
     compteur = othello.compter_pieces()

@@ -55,24 +55,45 @@ class AI:
                 enchainement_retenu = [coup] + liste_coups
         return enchainement_retenu, pire_recompense
     
+    
     def negamax(self, othello, joueur, prof_courante, prof_max, heuristique):
+        self.compter_situations(prof_courante == 1)
         if prof_courante > prof_max or othello.est_termine():
-            return -heuristique(othello, joueur)
+            return [], -heuristique(othello, joueur)
 
-        meilleure_recompense = -float('inf')
+        meilleur_score = float('-inf')
+        meilleur_coup = None
+        meilleur_enchainement = []
+
         for coup in othello.liste_coups():
-            othello_temp = deepcopy(othello)
-            othello_temp.jouer_coup(*coup)
-            recompense = -self.negamax(othello_temp, joueur, prof_courante + 1, prof_max, heuristique)
-            meilleure_recompense = max(meilleure_recompense, recompense)
+            nouvelle_situation = othello.tenter_coup(coup)
+            enchainement, score = self.negamax(nouvelle_situation, 
+                                               joueur, 
+                                               prof_courante + 1, 
+                                               prof_max, 
+                                               heuristique)
+            score = -score
 
-        return meilleure_recompense
+            if score > meilleur_score:
+                meilleur_score = score
+                meilleur_coup = coup
+                meilleur_enchainement = enchainement
+
+        if meilleur_coup is not None:
+            return [meilleur_coup] + meilleur_enchainement, meilleur_score
+        else:
+            return [], meilleur_score
 
     def evaluer_passer_son_tour_negamax(self, othello, joueur, prof_courante, prof_max, heuristique):
         situation = deepcopy(othello)
         situation.changer_joueur()
-        enchainement, recompense = self.negamax(situation, joueur, prof_courante+1, prof_max, heuristique)
-        return (([None] + enchainement), recompense)
+        enchainement, score = self.negamax(situation, 
+                                           joueur, 
+                                           prof_courante + 1, 
+                                           prof_max, 
+                                           heuristique)
+        return [None] + enchainement, -score
+
     
     
     def alpha_beta(self, othello, joueur, prof_courante, prof_max, heuristique, alpha, beta):
