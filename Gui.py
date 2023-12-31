@@ -90,6 +90,16 @@ class Gui:
         else:
             othello.changer_joueur()
 
-    def choisir_couleur_joueur(self):
+    """def choisir_couleur_joueur(self):
         choix = input("Choisissez la couleur pour le joueur humain (1: Noir, 2: Blanc): ")
-        return "noir" if choix == "1" else "blanc"
+        return "noir" if choix == "1" else "blanc" """
+    
+    def choisir_couleur_joueur(self):
+        while True:
+            choix = input(" (1,bot IA : Noir) -> Choisissez la couleur Blanc pour le joueur humain (2,joueur humain: Blanc): ")
+            if choix == "1":
+                return "noir"
+            elif choix == "2":
+                return "blanc"
+            else:
+                print("Choix invalide. Veuillez choisir 2 pour Blanc.")
