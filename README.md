@@ -3,18 +3,18 @@
 ## Sommaire
 1. **Introduction**
 2. **Analyse**
-   a. Modélisation et Structures de Données
-   b. Algorithmes Principaux
+   - a. Modélisation et Structures de Données
+   - b. Algorithmes Principaux
 3. **Validation**
-   a. Résultats Numériques
-   b. Comparaison des Stratégies
+   - a. Résultats Numériques
+   - b. Comparaison des Stratégies
 4. **Discussion**
-   a. Efficacité des Stratégies
-   b. Difficultés et Limites
+   - a. Efficacité des Stratégies
+   - b.	Difficultés et Limites
 5. **Conclusion**
-6. **Annexes**
-   a. Code Source
-7. **Bibliographie**
+6. **Appendices**
+   - a.	Code Source
+7. **Bibliography**
 
 ### Introduction
 Ce rapport présente une analyse détaillée du jeu Othello, implémenté en Python. Nous discutons de la modélisation du jeu, des algorithmes développés pour l'intelligence artificielle (IA), et des résultats obtenus lors de différentes simulations.
