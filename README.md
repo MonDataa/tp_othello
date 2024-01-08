@@ -44,16 +44,16 @@ Des tests ont été réalisés pour mesurer l'efficacité des algorithmes en ter
 
 #### Performance des Stratégies
 Les performances comparatives de différentes stratégies utilisant Alpha-beta ont donné les résultats suivants :
-- **Coins valorisés vs. Absolue:** Noirs - 30, Blancs - 34
-- **Mixte vs. Mobilité:** Noirs - 37, Blancs - 27
-- **Mobilité vs. Absolue:** Noirs - 33, Blancs - 31
-- **Mobilité vs. Coins valorisés:** Noirs - 42, Blancs - 22
-- **Absolue vs. Mixte:** Noirs - 31, Blancs - 33
-- **Coins valorisés vs. Mixte:** Noirs - 44, Blancs - 20
-- **Positionnelle vs. Mobilité:** Noirs - 19, Blancs - 45
-- **Positionnelle vs. Absolue:** Noirs - 29, Blancs - 35
-- **Positionnelle vs. Coins Absolue:** Noirs - 11, Blancs - 53
-- **Positionnelle vs. Mixte:** Noirs - 24, Blancs - 40
+- **Coins valorisés >. Absolue:** Noirs - 30, Blancs - 34
+- **Mixte >. Mobilité:** Noirs - 37, Blancs - 27
+- **Mobilité >. Absolue:** Noirs - 33, Blancs - 31
+- **Mobilité >. Coins valorisés:** Noirs - 42, Blancs - 22
+- **Absolue >. Mixte:** Noirs - 31, Blancs - 33
+- **Coins valorisés >. Mixte:** Noirs - 44, Blancs - 20
+- **Positionnelle >. Mobilité:** Noirs - 19, Blancs - 45
+- **Positionnelle >. Absolue:** Noirs - 29, Blancs - 35
+- **Positionnelle >. Coins Absolue:** Noirs - 11, Blancs - 53
+- **Positionnelle >. Mixte:** Noirs - 24, Blancs - 40
 
 
 #### Comparaison des Stratégies
