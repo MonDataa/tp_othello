@@ -39,13 +39,26 @@ Nous avons implémenté plusieurs algorithmes pour l'intelligence artificielle (
 
 ### Validation
 #### Résultats Numériques
-Les tests ont été réalisés pour mesurer l'efficacité des algorithmes en termes de temps de calcul et nombre de nœuds générés. Les résultats indiquent : 
+Des tests ont été réalisés pour mesurer l'efficacité des algorithmes en termes de temps de calcul et de nombre de nœuds générés. Principaux résultats :
+- Avec une profondeur de 4, l'algorithme Alpha-beta réduit considérablement le temps de calcul par rapport à Min-Max et Nega-Max.
 
-Avec une profondeur de 4 Alpha-beta prend beaucoup moins de temps de calcul par rapport aux min-max et nega-max.
+#### Performance des Stratégies
+Les performances comparatives de différentes stratégies utilisant Alpha-beta ont donné les résultats suivants :
+- **Coins valorisés vs. Absolue:** Noirs - 30, Blancs - 34
+- **Mixte vs. Mobilité:** Noirs - 37, Blancs - 27
+- **Mobilité vs. Absolue:** Noirs - 33, Blancs - 31
+- **Mobilité vs. Coins valorisés:** Noirs - 42, Blancs - 22
+- **Absolue vs. Mixte:** Noirs - 31, Blancs - 33
+- **Coins valorisés vs. Mixte:** Noirs - 44, Blancs - 20
+- **Positionnelle vs. Mobilité:** Noirs - 19, Blancs - 45
+- **Positionnelle vs. Absolue:** Noirs - 29, Blancs - 35
+- **Positionnelle vs. Coins Absolue:** Noirs - 11, Blancs - 53
+- **Positionnelle vs. Mixte:** Noirs - 24, Blancs - 40
 
 
 #### Comparaison des Stratégies
-Nous avons comparé les performances des différentes stratégies IA contre un joueur humain ainsi qu'entre elles. Les résultats montrent que la stratégie absolue et la stratégie absolue améliorer (Coins valorisés) marche mieux que les autres peut import l’algorithme utilisé.
+
+La comparaison des stratégies d'IA dans le jeu Othello indique des tendances distinctes. La stratégie de Coins valorisés surpasse souvent l'Heuristique Absolue, suggérant une efficacité accrue en valorisant les pièces stratégiques dans les coins. De même, l'Heuristique de Mobilité a montré une performance supérieure contre l'Absolue et même contre la stratégie de Coins valorisés, mettant en avant l'importance de la flexibilité et du contrôle du jeu. Toutefois, l'Heuristique Mixte, bien qu'équilibrée, semble moins performante face à d'autres stratégies. Cela suggère que l'adaptation des poids dans cette stratégie mixte est cruciale pour son efficacité. En résumé, chaque stratégie a ses forces et faiblesses distinctes, et leur efficacité peut varier en fonction du contexte de jeu.
 
 ### Discussion
 #### Efficacité des Stratégies
@@ -84,7 +97,8 @@ Mais il reste possible d’utilisé un compilateur c pour exécuter python, ou u
 
 
 ### Conclusion
-[Concluding remarks on the project.]
+
+Ce projet d'Othello en IA démontre l'efficacité et la complexité des algorithmes Min-Max, Alpha-Beta et Nega-Max dans la stratégie du jeu. La modélisation et la structuration des données ont joué un rôle clé dans une simulation réaliste. Bien que l'efficacité des stratégies d'IA soit prouvée, le projet révèle des défis d'implémentation et des limites algorithmiques. Cependant, il représente un progrès significatif dans l'application de l'IA aux jeux de stratégie, avec des améliorations potentielles par l'apprentissage par renforcement et l'optimisation des calculs
 
 ### Annexes
 #### Code Source
